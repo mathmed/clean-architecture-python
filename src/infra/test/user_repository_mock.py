@@ -1,6 +1,5 @@
 
 from src.domain.models import User
-from src.domain.test import user_mock
 from src.data.contracts import UserRepositoryContract
 from src.data.contracts import CreateUserParams
 
@@ -9,6 +8,7 @@ class UserRepositoryMock(UserRepositoryContract):
     def __init__(self):
         self.insert_user_params = {}
         self.select_user_params = {}
+        self.return_select = {}
 
     def insert_user(self, params: CreateUserParams) -> User:
         self.insert_user_params["username"] = params.username
@@ -23,4 +23,6 @@ class UserRepositoryMock(UserRepositoryContract):
     def select_user(self, field_filter: str = None, value: str = None) -> User:
         self.select_user_params["field"] = field_filter
         self.select_user_params["value"] = value
-        return user_mock()
+        if(self.return_select == {}):
+            self.return_select = self.insert_user_params
+        return self.return_select
