@@ -8,7 +8,7 @@ load_dotenv()
 class DBConnectionHandler:
 
     def __init__(self):
-        self.__connection_string = "mysql+pymysql://{}:{}@{}:{}/{}?charset=utf8mb4".format(os.getenv("DB_USER"), os.getenv("DB_PASSWORD"), os.getenv("DB_HOST"), os.getenv("DB_PORT"), os.getenv("DATABASE_NAME"))
+        self.__connection_string = "mysql+pymysql://{}:{}@{}:3306/{}?charset=utf8mb4".format(os.getenv("MYSQL_USER"), os.getenv("MYSQL_PASSWORD"), os.getenv("MYSQL_HOST"), os.getenv("MYSQL_DATABASE"))
         self.session = None
 
     def get_engine(self):
