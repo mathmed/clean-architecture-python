@@ -1,2 +1,1 @@
-from .user_repository_contract import UserRepositoryContract
-from .user_repository_contract import CreateUserParams
+from .user_repository_contract import UserRepositoryContract, CreateUserParams
