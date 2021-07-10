@@ -1,0 +1,8 @@
+[run]
+omit = 
+    src/main/*
+    *_mock.py
+    *__init__.py
+    *_contract.py
+    main.py
+    *_test.py
