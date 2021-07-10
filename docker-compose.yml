@@ -1,0 +1,30 @@
+version: "3.5"
+services:
+  python-github-api:
+    build: ./docker
+    ports:
+      - ${APP_PORT}:${APP_PORT}
+    volumes:
+      - .:/home/api
+    networks:
+      - app_network
+
+  database:
+    container_name: ${MYSQL_HOST}
+    image: mysql:5.7
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_HOST: ${MYSQL_HOST}
+    ports:
+      - ${MYSQL_PORT}:3306
+    volumes:
+      - "./data/db/mysql:/var/lib/mysql"
+    networks:
+      - app_network
+
+networks:
+  app_network:
+    driver: bridge
