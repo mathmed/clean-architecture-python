@@ -5,3 +5,4 @@ venv
 .env
 htmlcov
 .coverage
+data
