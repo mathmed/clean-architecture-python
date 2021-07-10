@@ -1,8 +1,8 @@
 
-from src.domain.usecases import CreateUser, CreateUserParams
+from src.domain.usecases import CreateUserContract, CreateUserParams
 from typing import Dict
 
-class CreateUserMock(CreateUser):
+class CreateUserMock(CreateUserContract):
 
     def __init__(self):
         self.execute_params = {}

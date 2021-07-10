@@ -1,11 +1,11 @@
 from typing import Type
-from src.domain.usecases import CreateUser, CreateUserParams
+from src.domain.usecases import CreateUserContract, CreateUserParams
 from src.presentation.helpers import HttpRequest, HttpResponse, validate
 from src.presentation.errors import HttpErrors
 from src.presentation.contracts import ControllerContract
 
 class CreateUserController(ControllerContract):
-    def __init__(self, use_case: Type[CreateUser]):
+    def __init__(self, use_case: Type[CreateUserContract]):
         self.use_case = use_case
 
     def handle(self, http_request: Type[HttpRequest]) -> HttpResponse:

@@ -12,7 +12,7 @@ class CreateUserParams:
         self.gender = gender
 
 
-class CreateUser(ABC):
+class CreateUserContract(ABC):
     
     @abstractmethod
     def execute(self, params: CreateUserParams ) -> Dict:

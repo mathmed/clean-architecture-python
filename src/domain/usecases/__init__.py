@@ -1,1 +1,1 @@
-from .create_user import CreateUser, CreateUserParams
+from .create_user_contract import CreateUserContract, CreateUserParams

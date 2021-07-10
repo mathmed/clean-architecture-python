@@ -1,5 +1,5 @@
 from typing import Type, Dict
-from src.domain.usecases import CreateUserParams, CreateUser as CreateUserContract
+from src.domain.usecases import CreateUserParams, CreateUserContract
 from src.data.contracts import UserRepositoryContract, CreateUserParams as CreateUserDBParams
 
 class CreateUser(CreateUserContract):
