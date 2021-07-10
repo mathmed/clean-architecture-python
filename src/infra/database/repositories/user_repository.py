@@ -42,7 +42,7 @@ class UserRepository(UserRepositoryContract):
 
         with DBConnectionHandler() as db_connection:
             try:
-                data = db_connection.session.query(User).filter_by(**{field_filter:value}).one()
+                data = db_connection.session.query(User).filter_by(**{field_filter:value}).first()
                 return data
             except:
                 db_connection.session.rollback()
