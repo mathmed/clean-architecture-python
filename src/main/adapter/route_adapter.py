@@ -1,3 +1,4 @@
+import traceback
 from typing import Type
 from sqlalchemy.exc import IntegrityError
 from src.presentation.helpers import HttpRequest, HttpResponse
@@ -26,7 +27,8 @@ def flask_adapter(request: any, api_route: Type[ControllerContract]) -> any:
         return HttpResponse(
             status_code=https_error["status_code"], body=https_error["body"]
         )
-    except:
+    except Exception:
+        traceback.print_exc()
         https_error = HttpErrors.error_500()
         return HttpResponse(
             status_code=https_error["status_code"], body=https_error["body"]
