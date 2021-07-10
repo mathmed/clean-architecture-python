@@ -8,6 +8,6 @@ def validate(required_fields: [], body: Dict) -> HttpResponse:
         if field not in body:
             missing_fields.append(field)
     if(len(missing_fields) > 0):
-            http_error =  HttpErrors.error_400("Missing required field (s): {}".format(', '.join(missing_fields)))
-            return HttpResponse(http_error["status_code"], http_error["body"])
+        http_error =  HttpErrors.error_400("Missing required field (s): {}".format(', '.join(missing_fields)))
+        return HttpResponse(http_error["status_code"], http_error["body"])
     return None
