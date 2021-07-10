@@ -20,7 +20,7 @@ def test_insert_and_select_user():
 
     engine = db_connection_handler.get_engine()
 
-    user = user_repository.insert_user(CreateUserParams(username, name, last_name, profile_image_url, bio, email, gender))
+    user = user_repository.insert_user(CreateUserParams(username, name, email, last_name, profile_image_url, bio, gender))
     select_user = user_repository.select_user("username", username)
 
     assert user.username == select_user.username

@@ -1,4 +1,4 @@
-from sqlalchemy import Column, String, Integer, Enum
+from sqlalchemy import Column, String, Enum
 from src.infra.database.config import Base
 import enum
 

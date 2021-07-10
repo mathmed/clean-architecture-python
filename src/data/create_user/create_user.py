@@ -1,7 +1,6 @@
 from typing import Type, Dict
 from src.domain.usecases import CreateUserParams, CreateUser as CreateUserContract
 from src.data.contracts import UserRepositoryContract, CreateUserParams as CreateUserDBParams
-from src.domain.models import User
 
 class CreateUser(CreateUserContract):
 

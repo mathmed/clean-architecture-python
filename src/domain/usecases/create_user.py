@@ -1,6 +1,5 @@
 from abc import ABC, abstractmethod
 from typing import Dict
-from src.domain.models import User
 
 class CreateUserParams:
     def __init__(self, username: str, name: str, email: str, last_name: str, profile_image_url: str, bio: str,  gender: str):
