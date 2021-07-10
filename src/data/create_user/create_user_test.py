@@ -4,19 +4,20 @@ from .create_user import CreateUser, CreateUserParams
 
 repo_mock = UserRepositoryMock()
 sut = CreateUser(repo_mock)
+user = user_mock()
+user_params = CreateUserParams(
+    user.username,
+    user.name,
+    user.email,
+    user.last_name,
+    user.profile_image_url,
+    user.bio,
+    user.gender
+)
 
-def test_create_user_return():
-    """Should return correct data on success"""
-    user = user_mock()
-    result = sut.execute(CreateUserParams(
-        user.username,
-        user.name,
-        user.email,
-        user.last_name,
-        user.profile_image_url,
-        user.bio,
-        user.gender
-    ))
+def test_should_return_correct_data_on_success():
+    repo_mock.return_select = None
+    result = sut.execute(user_params)
 
     assert result["message"] == "ok"
     assert result["success"] == True
@@ -32,18 +33,8 @@ def test_create_user_return():
     assert user_data.gender == user.gender
 
 
-def test_create_user_call_repository():
-    """Should call repository with correct params"""
-    user = user_mock()
-    sut.execute(CreateUserParams(
-        user.username,
-        user.name,
-        user.email,
-        user.last_name,
-        user.profile_image_url,
-        user.bio,
-        user.gender
-    ))
+def test_should_call_repository_with_correct_params():
+    sut.execute(user_params)
 
     assert repo_mock.insert_user_params["username"] == user.username
     assert repo_mock.insert_user_params["name"] == user.name
@@ -52,3 +43,15 @@ def test_create_user_call_repository():
     assert repo_mock.insert_user_params["bio"] == user.bio
     assert repo_mock.insert_user_params["email"] == user.email
     assert repo_mock.insert_user_params["gender"] == user.gender
+
+
+def test_should_return_error_if_user_exists():
+    repo_mock.return_select = {}
+    repo_mock.insert_user_params = user_params
+
+    result = sut.execute(user_params)
+
+    assert result["success"] == False
+    assert result["message"] == "User {} already exists".format(user_params.username)
+    assert result["data"] == {}
+
