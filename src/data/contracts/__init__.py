@@ -1,1 +1,2 @@
 from .user_repository_contract import UserRepositoryContract, CreateUserParams
+from .http_request_contract import HttpRequestContract
