@@ -1,1 +1,2 @@
 from .user_repository_mock import UserRepositoryMock
+from .requests_mock import RequestsMock
