@@ -1,6 +1,6 @@
 from typing import Dict
 from src.presentation.errors import HttpErrors
-from src.presentation.helpers import HttpResponse
+from src.presentation.contracts import HttpResponse
 
 def validate(required_fields: [], body: Dict) -> HttpResponse:
     missing_fields = []

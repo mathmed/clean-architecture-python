@@ -1,7 +1,7 @@
 from faker import Faker
 from .create_user_from_github_controller import CreateUserFromGitHubController
 from src.data.test import CreateUserFromGithubMock
-from src.presentation.helpers import HttpRequest
+from src.presentation.contracts import HttpRequest
 from src.domain.test import user_mock
 
 mock_create_user = CreateUserFromGithubMock()

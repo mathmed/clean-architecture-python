@@ -1,8 +1,8 @@
 from typing import Type
 from src.domain.usecases import CreateUserFromGitHubContract, CreateUserFromGitHubParams
-from src.presentation.helpers import HttpRequest, HttpResponse, validate
+from src.presentation.helpers import validate
 from src.presentation.errors import HttpErrors
-from src.presentation.contracts import ControllerContract
+from src.presentation.contracts import ControllerContract, HttpRequest, HttpResponse
 
 class CreateUserFromGitHubController(ControllerContract):
     def __init__(self, use_case: Type[CreateUserFromGitHubContract]):

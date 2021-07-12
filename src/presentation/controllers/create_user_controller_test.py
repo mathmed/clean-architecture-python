@@ -1,7 +1,7 @@
 from faker import Faker
 from .create_user_controller import CreateUserController
 from src.data.test import CreateUserMock
-from src.presentation.helpers import HttpRequest
+from src.presentation.contracts import HttpRequest
 from src.domain.test import user_mock
 
 mock_create_user = CreateUserMock()
