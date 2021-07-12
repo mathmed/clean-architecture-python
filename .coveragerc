@@ -6,3 +6,4 @@ omit =
     *_contract.py
     main.py
     *_test.py
+    */entities/*
