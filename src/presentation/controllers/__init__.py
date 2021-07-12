@@ -1,1 +1,2 @@
 from .create_user_controller import CreateUserController
+from .create_user_from_github_controller import CreateUserFromGitHubController
