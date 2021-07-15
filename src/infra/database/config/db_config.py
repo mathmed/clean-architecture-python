@@ -19,6 +19,7 @@ class DBConnectionHandler:
         engine = create_engine(self.__connection_string)
         session_maker = sessionmaker()
         self.session = session_maker(bind=engine)
+        self.session.expire_on_commit = False
         return self
 
     def __exit__(self, exc_type, exc_val, exc_tb):
