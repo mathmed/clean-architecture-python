@@ -4,7 +4,7 @@ from sqlalchemy.exc import IntegrityError
 from src.presentation.errors import HttpErrors
 from src.presentation.contracts import ControllerContract, HttpRequest, HttpResponse
 
-def flask_adapter(request: any, api_route: Type[ControllerContract]) -> any:
+def flask_adapter(request: any, api_route: Type[ControllerContract], url_param: str = None) -> any:
 
     try:
         query_string_params = request.args.to_dict()
@@ -15,7 +15,7 @@ def flask_adapter(request: any, api_route: Type[ControllerContract]) -> any:
         )
 
     http_request = HttpRequest(
-        header=request.headers, body=request.json, query=query_string_params
+        header=request.headers, body=request.json, query=query_string_params, url_param=url_param
     )
 
     try:

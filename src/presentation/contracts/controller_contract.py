@@ -1,15 +1,15 @@
 from typing import Type, Dict
 from abc import ABC, abstractmethod
 class HttpRequest:
-
-    def __init__(self, header: Dict = None, body: Dict = None, query: Dict = None):
+    def __init__(self, header: Dict = None, body: Dict = None, query: Dict = None, url_param: str = None):
         self.header = header
         self.body = body
         self.query = query
+        self.url_param = url_param
 
     def __repr__(self):
         return (
-            f"HttpRequest (header={self.header}, body={self.body}, query={self.query})"
+            f"HttpRequest (header={self.header}, body={self.body}, query={self.query}, url_param={self.url_param})"
         )
 class HttpResponse:
 
