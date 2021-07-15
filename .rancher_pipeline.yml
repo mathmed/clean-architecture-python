@@ -1,0 +1,18 @@
+stages:
+  - name: Test
+    steps:
+      - runScriptConfig:
+          image: python:3.8
+          shellScript: |-
+            pip install -r requirements.txt
+            pytest src/
+  - name: Publish
+    steps:
+      - publishImageConfig:
+          dockerfilePath: ./Dockerfile
+          buildContext: .
+          tag: python:${CICD_EXECUTION_SEQUENCE}
+  - name: Deploy
+    steps:
+      - applyYamlConfig:
+          path: ./deployment.yaml
