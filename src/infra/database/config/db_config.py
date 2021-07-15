@@ -8,7 +8,7 @@ load_dotenv()
 class DBConnectionHandler:
 
     def __init__(self):
-        self.__connection_string = "mysql+pymysql://{}:{}@{}:3306/{}?charset=utf8mb4".format(os.getenv("MYSQL_USER"), os.getenv("MYSQL_PASSWORD"), os.getenv("MYSQL_HOST"), os.getenv("MYSQL_DATABASE"))
+        self.__connection_string = "mysql+pymysql://{}:{}@{}:3306/{}?charset=utf8mb4".format(os.getenv("MARIADB_USER"), os.getenv("MARIADB_PASSWORD"), os.getenv("MARIADB_HOST"), os.getenv("MARIADB_DATABASE"))
         self.session = None
 
     def get_engine(self):
