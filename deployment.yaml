@@ -3,7 +3,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: python-server
-  #namespace: go
+  namespace: default
   labels:
     app: python-api
 spec:
@@ -29,6 +29,7 @@ kind: Service
 apiVersion: v1
 metadata:
   name: python-service
+  namespace: default
 spec:
   selector:
     app: python-api
@@ -43,6 +44,7 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: python-ingress
+  namespace: default
   annotations:
     allow.http: "false"
 spec:
