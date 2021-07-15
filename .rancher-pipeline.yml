@@ -1,11 +1,11 @@
 stages:
-  # - name: Test
-  #   steps:
-  #     - runScriptConfig:
-  #         image: python:3.8
-  #         shellScript: |-
-  #           pip install -r requirements.txt
-  #           pytest src/
+  - name: Test
+    steps:
+      - runScriptConfig:
+          image: python:3.8
+          shellScript: |-
+            pip install -r requirements.txt
+            pytest src/
   - name: Publish
     steps:
       - publishImageConfig:
