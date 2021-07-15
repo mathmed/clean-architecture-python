@@ -5,4 +5,4 @@ venv
 .env
 htmlcov
 .coverage
-data/db
+development/data
