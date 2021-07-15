@@ -13,5 +13,5 @@ class UpdateUserParams:
 class UpdateUserContract(ABC):
     
     @abstractmethod
-    def execute(self, params: UpdateUserParams ) -> Dict:
+    def execute(self, username: str, params: UpdateUserParams ) -> Dict:
         raise Exception("Method not implemented")
