@@ -1,1 +1,2 @@
 from .create_user import CreateUser
+from .create_user_from_github import CreateUserFromGithub
