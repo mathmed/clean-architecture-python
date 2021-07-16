@@ -1,2 +1,3 @@
 from .create_user_mock import CreateUserMock
 from .create_user_from_github_mock import CreateUserFromGithubMock
+from .update_user_mock import UpdateUserMock
