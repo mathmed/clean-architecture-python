@@ -1,2 +1,3 @@
 from .create_user_factory import create_user_factory
 from .create_user_from_github_factory import create_user_from_github_factory
+from .update_user_factory import update_user_factory
